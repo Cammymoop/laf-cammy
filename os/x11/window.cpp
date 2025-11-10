@@ -1196,8 +1196,8 @@ void WindowX11::processX11Event(XEvent& event)
 
       // Only reset double-click state if movement exceeds threshold
       if (m_doubleClickButton != Event::NoneButton) {
-        int deltaX = std::abs(event.xmotion.x / m_scale - m_doubleClickPos.x);
-        int deltaY = std::abs(event.xmotion.y / m_scale - m_doubleClickPos.y);
+        int deltaX = std::abs(event.xmotion.x / m_scale - m_doubleClickStartPos.x);
+        int deltaY = std::abs(event.xmotion.y / m_scale - m_doubleClickStartPos.y);
         if (deltaX >= kDoubleClickThreshold || deltaY >= kDoubleClickThreshold) {
           m_doubleClickButton = Event::NoneButton;
         }
